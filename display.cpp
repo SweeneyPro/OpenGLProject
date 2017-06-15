@@ -32,7 +32,7 @@ Display::~Display()	// Destructor - Destroy context and window
 {
 	SDL_GL_DeleteContext(m_glContext);	// Remove as main window target
 	SDL_DestroyWindow(m_window);	// Delete window
-	SDL_Quit();	// NOT SURE!!!!!!!!!!!!!!!!!!!!!!!
+	SDL_Quit();	
 }
 
 void Display::Update()	// Update the window
