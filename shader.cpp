@@ -16,14 +16,14 @@ Shader::Shader(const std::string& fileName)
 		glAttachShader(m_program, m_shaders[i]); 
 	}
 
-	glBindAttribLocation(m_program, 0, "position");	// program object, FIND THIS, the variable from the shader
-	glBindAttribLocation(m_program, 1, "texCoord");	// FIND OUT WHAT THIS DOES
-	glBindAttribLocation(m_program, 2, "normal");	// FIND OUT WHAT THIS DOES
+	glBindAttribLocation(m_program, 0, "position");	
+	glBindAttribLocation(m_program, 1, "texCoord");	
+	glBindAttribLocation(m_program, 2, "normal");	
 
-	glLinkProgram(m_program);	// NOT SURE, THINK IT IS THE FINAL STEP IN LINKING THE SHADER TO THE PROJECT
+	glLinkProgram(m_program);	
 	CheckShaderError(m_program, GL_LINK_STATUS, true, "Error: Program linking failed: ");
 
-	glValidateProgram(m_program);	// CHECK IF PROGRAM IS VALID I GUESS
+	glValidateProgram(m_program);	
 	CheckShaderError(m_program, GL_VALIDATE_STATUS, true, "Error: Program is invalid: ");
 
 	m_uniforms[TRANSFORM_U] = glGetUniformLocation(m_program, "transform");
@@ -66,7 +66,7 @@ static GLuint CreateShader(const std::string& text, GLenum shaderType)	// Genera
 	GLint shaderSourceStringsLengths[1];
 
 	shaderSourceStrings[0] = text.c_str();	// Shader directory string
-	shaderSourceStringsLengths[0] = text.length();	// Shader directory string length - NOT SURE WHY NEEDED
+	shaderSourceStringsLengths[0] = text.length();	
 
 	glShaderSource(shader, 1, shaderSourceStrings, shaderSourceStringsLengths);	// Puts the code from shader directory into the shader - FUCK KNOWS
 	glCompileShader(shader);		// Compiles all shader
